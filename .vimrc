@@ -22,7 +22,8 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
+Plugin 'Townk/vim-autoclose'
+Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Bundle 'Valloric/YouCompleteMe'
@@ -32,6 +33,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -55,7 +57,7 @@ set foldmethod=indent
 set foldlevel=99
 
 " Fold with space
-nnoremap <space> za
+nnoremap <C-F> za
 
 " Show docstrings for folded code
 let g:SimplyFold_docstring_preview=1
@@ -79,12 +81,17 @@ au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-"
+
 " Python default encoding
 set encoding=utf-8
 
+"Search highlight
+set hlsearch
+
+" YouCompleteMe stuff
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_python_binary_path = 'python'
 
 " Pretty code
 let python_highlight_all=1
