@@ -23,14 +23,11 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Townk/vim-autoclose'
-Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
@@ -96,7 +93,7 @@ let g:ycm_python_binary_path = 'python'
 " Pretty code
 let python_highlight_all=1
 syntax on
-colo solarized
+colo Monokai
 
 
 "python with virtualenv support
@@ -138,6 +135,7 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
+"PowerLine Stuff
 set  rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
