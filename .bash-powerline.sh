@@ -90,6 +90,16 @@ __powerline() {
         printf " $GIT_BRANCH_SYMBOL$branch$marks "
     }
 
+    __get_virtualenv() {
+        if [[  $VIRTUAL_ENV != "" ]]
+          then
+            VENV="__${VIRTUAL_ENV##*/}__"
+          else
+            VENV=''
+          fi
+	printf "$VENV"
+  }
+
     ps1() {
         # Check the exit code of the previous command and display different
         # colors in the prompt accordingly. 
@@ -99,9 +109,11 @@ __powerline() {
             local BG_EXIT="$BG_RED"
         fi
 
-        PS1="$BG_BASE2$FG_BASE2 \w $RESET"
-        PS1+="$BG_CYAN$FG_BASE3$(__git_info)$RESET"
-        PS1+="$BG_EXIT$FG_BASE3 $PS_SYMBOL $RESET "
+       	  PS1="$BG_GREEN$FG_BASE3$(__get_virtualenv)$RESET"
+          PS1+="$BG_BASE2$FG_BASE2 \w $RESET"
+          PS1+="$BG_CYAN$FG_BASE3$(__git_info)$RESET"
+          PS1+="$BG_EXIT$FG_BASE3 $PS_SYMBOL $RESET "
+	
     }
 
     PROMPT_COMMAND=ps1
